@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clash/utils/routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -9,55 +10,88 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool obscureTextValue = true;
+  String _name = "";
+  bool changeButton = false;
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        child: Column(
-          children: [
-            Image.asset(
-              'assets/images/login.png',
-              fit: BoxFit.cover,
-            ),
-            TextFormField(
-              maxLength: 20,
-              decoration: const InputDecoration(
-                icon: Icon(Icons.person),
-                labelText: 'Name',
-                hintText: "Enter Name",
-                suffixIcon: Icon(
-                  Icons.check_circle,
-                ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Image.asset(
+                'assets/images/login.png',
+                fit: BoxFit.cover,
               ),
-            ),
 
-            // PassWord Field
-            TextFormField(
-              maxLength: 20,
-              obscureText: obscureTextValue,
-              decoration: InputDecoration(
-                icon: const Icon(Icons.lock_clock),
-                labelText: 'Password',
-                hintText: 'Enter Password',
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      obscureTextValue = !obscureTextValue;
-                    });
-                  },
-                  icon: Icon(obscureTextValue
-                      ? Icons.visibility_off
-                      : Icons.visibility),
+              Text("Welcome $_name"),
+
+              TextFormField(
+                onChanged: (value) {
+                  setState(() {
+                    _name = value;
+                  });
+                },
+                maxLength: 20,
+                decoration: const InputDecoration(
+                  icon: Icon(Icons.person),
+                  labelText: 'Name',
+                  hintText: "Enter Name",
+                  suffixIcon: Icon(
+                    Icons.check_circle,
+                  ),
                 ),
               ),
-            ),
-            ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/');
+
+              // PassWord Field
+              TextFormField(
+                maxLength: 20,
+                obscureText: obscureTextValue,
+                decoration: InputDecoration(
+                  icon: const Icon(Icons.lock_clock),
+                  labelText: 'Password',
+                  hintText: 'Enter Password',
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        obscureTextValue = !obscureTextValue;
+                      });
+                    },
+                    icon: Icon(obscureTextValue
+                        ? Icons.visibility
+                        : Icons.visibility_off),
+                  ),
+                ),
+              ),
+
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    changeButton = true;
+                  });
+                  // Navigator.pushNamed(context, '/');
                 },
-                icon: const Icon(Icons.lock_open),
-                label: const Text('Login'))
-          ],
+                child: AnimatedContainer(
+                  width: changeButton ? 150 : 250,
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  duration: const Duration(seconds: 2),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
