@@ -43,16 +43,23 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text('Drawer Header'),
             ),
             ListTile(
-              title: const Text('Flutter Buttons'),
+              leading: const Icon(
+                Icons.smart_button,
+                color: Colors.blueAccent,
+              ),
+              title: const Text('Buttons'),
               onTap: () {
                 Navigator.pushNamed(context, '/button');
               },
             ),
             ListTile(
-              title: const Text('Flutter Icons'),
+              leading: const Icon(
+                Icons.image,
+                color: Colors.blueAccent,
+              ),
+              title: const Text('Images'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, '/image');
               },
             ),
           ],

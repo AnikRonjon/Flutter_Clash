@@ -36,24 +36,20 @@ class _ButtonsScreenState extends State<ButtonsScreen> {
             const SizedBox(
               height: 10,
             ),
-            FlatButton(
-              onPressed: () {},
-              child: const IconTheme(
-                data: IconThemeData(color: Colors.white),
-                child: Text('FlatButton'),
-              ),
-              color: Colors.blue,
-              textColor: Colors.white,
-            ),
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 BackButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   color: Colors.red,
                 ),
                 CloseButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   color: Colors.red,
                 ),
               ],
