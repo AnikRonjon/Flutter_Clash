@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.app_registration),
+            icon: const Icon(Icons.app_registration),
             onPressed: () {
               Navigator.pushNamed(context, '/registration');
             },
@@ -43,14 +43,13 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text('Drawer Header'),
             ),
             ListTile(
-              title: const Text('Item 1'),
+              title: const Text('Flutter Buttons'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, '/button');
               },
             ),
             ListTile(
-              title: const Text('Item 2'),
+              title: const Text('Flutter Icons'),
               onTap: () {
                 // Update the state of the app.
                 // ...

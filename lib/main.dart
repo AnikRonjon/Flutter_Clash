@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clash/screen/buttons.dart';
 import 'package:flutter_clash/screen/home.dart';
 import 'package:flutter_clash/screen/login.dart';
 import 'package:flutter_clash/screen/registration.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         MyRoutes.loginRoute: (context) => const LoginScreen(),
         MyRoutes.regRoute: (context) => const RegistrationScreen(),
+        MyRoutes.buttonRoute: (context) => const ButtonsScreen(),
       },
     );
   }

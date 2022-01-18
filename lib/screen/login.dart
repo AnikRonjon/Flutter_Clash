@@ -65,31 +65,18 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
 
               InkWell(
-                onTap: () {
-                  setState(() {
-                    changeButton = true;
-                  });
-                  // Navigator.pushNamed(context, '/');
-                },
-                child: AnimatedContainer(
-                  width: changeButton ? 150 : 250,
-                  height: 50,
-                  alignment: Alignment.center,
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  duration: const Duration(seconds: 2),
-                ),
-              ),
+                  onTap: () {
+                    setState(() {
+                      changeButton = true;
+                    });
+                    // Navigator.pushNamed(context, '/');
+                  },
+                  child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/');
+                      },
+                      icon: const Icon(Icons.lock_open),
+                      label: const Text('Login'))),
             ],
           ),
         ),
