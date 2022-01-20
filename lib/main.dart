@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clash/screen/buttons.dart';
-import 'package:flutter_clash/screen/home.dart';
-import 'package:flutter_clash/screen/images.dart';
-import 'package:flutter_clash/screen/login.dart';
-import 'package:flutter_clash/screen/registration.dart';
-import 'package:flutter_clash/utils/routes.dart';
+
+import 'Screen/home.dart';
+import 'Screen/login.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "First App",
-      home: const HomeScreen(),
-      initialRoute: MyRoutes.homeRoute,
+      title: 'Flutter Clash',
+      color: Colors.white,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          color: Colors.blue,
+        ),
+      ),
+      themeMode: ThemeMode.light,
+      initialRoute: '/',
       routes: {
-        MyRoutes.loginRoute: (context) => const LoginScreen(),
-        MyRoutes.regRoute: (context) => const RegistrationScreen(),
-        MyRoutes.buttonRoute: (context) => const ButtonsScreen(),
-        '/image': (context) => const ImagesScreen(),
+        '/': (context) => const HomeScreen(),
+        '/login': (context) => const LoginScreen(),
       },
     );
   }

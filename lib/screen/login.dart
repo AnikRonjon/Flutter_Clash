@@ -4,77 +4,93 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool obscureTextValue = true;
-  String _name = "";
-  bool changeButton = false;
+  bool _passwordVisibility = true;
+  String _name = '';
+  String _password = '';
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: SingleChildScrollView(
-        child: Column(
+      child: Form(
+        key: _formKey,
+        child: ListView(
           children: [
-            Image.asset(
-              'assets/images/login.png',
-              fit: BoxFit.cover,
+            const SizedBox(
+              height: 100,
             ),
-
-            Text("Welcome $_name"),
-
             TextFormField(
-              onChanged: (value) {
-                setState(() {
-                  _name = value;
-                });
-              },
-              maxLength: 20,
-              decoration: const InputDecoration(
-                icon: Icon(Icons.person),
-                labelText: 'Name',
-                hintText: "Enter Name",
-                suffixIcon: Icon(
-                  Icons.check_circle,
+                maxLength: 20,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please Enter Your Name';
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                  label: const Text('Name'),
+                  hintText: 'Enter Name',
+                  border: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red)),
+                  suffixIcon: IconButton(
+                    onPressed: () {},
+                    icon: const Icon((Icons.check_circle_outline)),
+                  ),
                 ),
-              ),
+                onChanged: (value) {
+                  setState(() {
+                    _name = value;
+                  });
+                }),
+            const SizedBox(
+              height: 15,
             ),
-
-            // PassWord Field
             TextFormField(
-              maxLength: 20,
-              obscureText: obscureTextValue,
+              obscureText: _passwordVisibility,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Enter Your Password';
+                }
+              },
               decoration: InputDecoration(
-                icon: const Icon(Icons.lock_clock),
                 labelText: 'Password',
                 hintText: 'Enter Password',
+                enabledBorder: const UnderlineInputBorder(),
                 suffixIcon: IconButton(
+                  icon: Icon(_passwordVisibility
+                      ? Icons.visibility_off
+                      : Icons.visibility),
                   onPressed: () {
                     setState(() {
-                      obscureTextValue = !obscureTextValue;
+                      _passwordVisibility = !_passwordVisibility;
                     });
                   },
-                  icon: Icon(obscureTextValue
-                      ? Icons.visibility
-                      : Icons.visibility_off),
                 ),
               ),
+              onChanged: (value) {
+                setState(() {
+                  _password = value;
+                });
+              },
             ),
-
-            InkWell(
-                onTap: () {
-                  setState(() {
-                    changeButton = true;
-                  });
-                  // Navigator.pushNamed(context, '/');
-                },
-                child: ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/');
-                    },
-                    icon: const Icon(Icons.lock_open),
-                    label: const Text('Login'))),
+            ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Processing Data')),
+                  );
+                }
+              },
+              child: const Text('Login'),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Text('Your name: $_name'),
+            Text('Your Pass: $_password')
           ],
         ),
       ),
