@@ -82,6 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Processing Data')),
                   );
+                  Navigator.pushNamed(context, '/');
                 }
               },
               child: const Text('Login'),

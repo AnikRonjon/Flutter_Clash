@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'Screen/home.dart';
 import 'Screen/login.dart';
+import 'Screen/textfield.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,6 +33,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
+        '/textfield': (context) => const TextFieldScreen(),
       },
     );
   }

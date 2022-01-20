@@ -15,6 +15,11 @@ class HomeScreen extends StatelessWidget {
             icon: const Icon(Icons.login),
             label: const Text('Go to Login'),
           ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/textfield');
+              },
+              child: const Text('TextField'))
         ],
       ),
     );
