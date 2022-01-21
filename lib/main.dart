@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'Screen/home.dart';
-import 'Screen/login.dart';
-import 'Screen/textfield.dart';
+import 'package:flutter_clash/screens/home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -18,23 +15,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Clash',
-      color: Colors.white,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme(
-          color: Colors.blue,
-        ),
-      ),
-      themeMode: ThemeMode.light,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const HomeScreen(),
-        '/login': (context) => const LoginScreen(),
-        '/textfield': (context) => const TextFieldScreen(),
-      },
+      home: HomeScreen(),
     );
   }
 }
