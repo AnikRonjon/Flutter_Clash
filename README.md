@@ -1,16 +1,11 @@
-# flutter_clash
+# [Learn Flutter](https://docs.flutter.dev/)
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Install [Flutter](https://docs.flutter.dev/get-started/install)
+### Install [VS Code](https://code.visualstudio.com/) with [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) extensiton. OR [Follow](https://docs.flutter.dev/get-started/editor?tab=vscode)
+### Create [New Project](https://docs.flutter.dev/development/tools/vs-code#creating-projects) on VS Code.
+### Resources.
+- Introduction to [widgets](https://docs.flutter.dev/development/ui/widgets-intro)
+- Widget [Catalog](https://docs.flutter.dev/development/ui/widgets)
+- Flutter [CookBook](https://docs.flutter.dev/cookbook)
+- Flutter [Gallery](https://gallery.flutter.dev/#/)
+- Advanced [UI](https://docs.flutter.dev/development/ui/advanced)
